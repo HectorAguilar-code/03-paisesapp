@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule} from '@angular/common/http'
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { VerPaisComponent } from './pais/pages/ver-pais/ver-pais.component';
-import { PaisModule } from './pais/pais.module';
 import { SharedModule } from './shared/shared.module';
-import { SiderbarComponent } from './shared/siderbar/siderbar.component';
+import { PaisModule } from './pais/pais.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,8 @@ import { SiderbarComponent } from './shared/siderbar/siderbar.component';
     BrowserModule,
     AppRoutingModule,
     PaisModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
