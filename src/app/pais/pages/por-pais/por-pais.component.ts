@@ -27,8 +27,12 @@ export class PorPaisComponent implements OnInit {
       this.hayError = true;
       this.paises = [];
     });
+  }
 
-    
+  sugerencias(termino: String){
+    this.hayError = false;
+    //  console.log(termino); 
+    //TODO crear sugerencias
   }
 
 }
