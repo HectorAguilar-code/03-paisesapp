@@ -12,6 +12,8 @@ export class PorCapitalComponent implements OnInit {
   termino : string = '';
   hayError: boolean = false;
   paises: Country[] = [];
+  capitalesSugeridas : Country[] = [];
+  mostrarSugerencias : boolean = false;
 
   constructor( private paisService: PaisService ) { }
 
@@ -21,13 +23,29 @@ export class PorCapitalComponent implements OnInit {
   buscar(termino:string){
     this.hayError = false;
     this.termino = termino;
+    this.mostrarSugerencias = false;
     this.paisService.buscarCapital(this.termino).subscribe(paises =>{
       this.paises = paises;
     }, (error) =>{
       this.hayError = true;
       this.paises = [];
-    });
+    }); 
+  }
 
-    
+  sugerencias(termino: string){
+    this.hayError = false;
+    this.mostrarSugerencias = true;
+    this.termino = termino;
+    this.paisService.buscarCapital(this.termino).subscribe( capitales =>{
+      this.capitalesSugeridas = capitales;
+
+    }, (error) =>{
+      this.hayError = true;
+      this.capitalesSugeridas = []
+    })
+  }
+
+  buscarSugerido(termino: string) {
+    this.buscar(termino);
   }
 }

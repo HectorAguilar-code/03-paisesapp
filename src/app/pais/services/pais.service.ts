@@ -18,7 +18,7 @@ export class PaisService {
 
     buscarPais( termino: String ): Observable<Country[]> {
       const url = `${this._apiUrl}/name/${termino}`;
-      return this.http.get<Country[]>(url, {params: this.params });
+      return this.http.get<Country[]>(url, {params : this.params});
     }
 
     buscarCapital( termino: String ): Observable<Country[]> {
@@ -36,7 +36,7 @@ export class PaisService {
       // const params = new HttpParams().set('fields','name,capital,cca2,flags,population')
 
       const url = `${this._apiUrl}/region/${region}`;
-      return this.http.get<Country[]>(url,{params});
+      return this.http.get<Country[]>(url,{params : this.params});
     }
   
 }
